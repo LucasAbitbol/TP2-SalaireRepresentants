@@ -67,8 +67,7 @@ public class Representant {
 		if (montant < 0) {
 			throw new IllegalArgumentException("Le montant doit être positif ou null");
 		}
-                this.ChiffreAffaires[mois] = montant;
-                        
+                this.ChiffreAffaires[mois] = montant;                        
 	}
 
 	/**
@@ -79,7 +78,7 @@ public class Representant {
 	 */
 	public float salaireMensuel(int mois, float pourcentage) {
             float salaire;
-            salaire = this.salaireFixe + this.secteur.getIndemniteRepas() + this.ChiffreAffaires[mois]*(1+ pourcentage);
+            salaire = this.salaireFixe + this.secteur.getIndemniteRepas() + this.ChiffreAffaires[mois]*(pourcentage);
             return salaire;
 	}
 
