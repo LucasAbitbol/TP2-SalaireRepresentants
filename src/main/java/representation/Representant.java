@@ -77,6 +77,9 @@ public class Representant {
 	 * @return le salaire pour ce mois, tenant compte du salaire fixe, de l'indemnité repas, et du pourcentage sur CA
 	 */
 	public float salaireMensuel(int mois, float pourcentage) {
+            if (pourcentage < 0) {
+                throw new IllegalArgumentException("Le pourcentage ne peux pas être négatif");
+            }
             float salaire;
             salaire = this.salaireFixe + this.secteur.getIndemniteRepas() + this.ChiffreAffaires[mois]*(pourcentage);
             return salaire;
