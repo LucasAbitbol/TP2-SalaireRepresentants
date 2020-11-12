@@ -81,10 +81,19 @@ public class TestRepresentant {
 
     }
 
-    public void testMoisImpossible() {
+    public void testMoisImpossibleChiffreAffaires() {
         try {
             r.enregistrerCA(-1, -10000f);
             fail("Un mois négatif doit générer une exception");
+        } catch (IllegalArgumentException e) {
+        }
+
+    }
+    
+    public void testMoisImpossibleSalaireMensuel() {
+        try {
+            r.salaireMensuel(13, -10000f);
+            fail("Un mois supérieur a 11 doit générer une exception");
         } catch (IllegalArgumentException e) {
         }
 
