@@ -8,6 +8,7 @@ public class Representant {
 	private String adresse;
 	private float salaireFixe;
         private ZoneGeographique secteur;
+        private float [] ChiffreAffaires = new float [12];
 
 	public Representant(int numero, String nom, String prenom, ZoneGeographique secteur) {
 		this.numero = numero;
@@ -60,15 +61,14 @@ public class Representant {
 	 * @param montant le CA réalisé pour ce mois (positif ou nul)
 	 **/
 	public void enregistrerCA(int mois, float montant) {
-		// vérifier les paramètres
 		if (mois < 0 || mois > 11) {
 			throw new IllegalArgumentException("Le mois doit être compris entre 0 et 11");
 		}
 		if (montant < 0) {
 			throw new IllegalArgumentException("Le montant doit être positif ou null");
 		}
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+                this.ChiffreAffaires[mois] = montant;
+                        
 	}
 
 	/**
@@ -78,8 +78,9 @@ public class Representant {
 	 * @return le salaire pour ce mois, tenant compte du salaire fixe, de l'indemnité repas, et du pourcentage sur CA
 	 */
 	public float salaireMensuel(int mois, float pourcentage) {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+            float salaire;
+            salaire = this.salaireFixe + this.secteur.getIndemniteRepas() + this.ChiffreAffaires[mois]*(1+ pourcentage);
+            return salaire;
 	}
 
 	@Override
