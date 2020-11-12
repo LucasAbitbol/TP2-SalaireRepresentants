@@ -7,11 +7,13 @@ public class Representant {
 	private final String prenom;
 	private String adresse;
 	private float salaireFixe;
+        private ZoneGeographique secteur;
 
 	public Representant(int numero, String nom, String prenom, ZoneGeographique secteur) {
 		this.numero = numero;
 		this.nom = nom;
 		this.prenom = prenom;
+                this.secteur = secteur;
 	}
 
 	public int getNumero() {
@@ -37,6 +39,8 @@ public class Representant {
 	public float getSalaireFixe() {
 		return salaireFixe;
 	}
+        
+        
 
 	public void setSalaireFixe(float salaireFixe) {
 		this.salaireFixe = salaireFixe;
